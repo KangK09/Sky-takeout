@@ -19,4 +19,8 @@ public class DishPageQueryDTO implements Serializable {
     //状态 0表示禁用 1表示启用
     private Integer status;
 
+    public int getPage() {
+        return page;
+    }
+
 }

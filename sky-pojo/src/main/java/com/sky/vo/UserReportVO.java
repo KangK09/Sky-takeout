@@ -23,3 +23,5 @@ public class UserReportVO implements Serializable {
     private String newUserList;
 
 }
+
+

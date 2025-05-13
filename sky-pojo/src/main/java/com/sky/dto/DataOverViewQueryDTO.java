@@ -9,9 +9,10 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+
 public class DataOverViewQueryDTO implements Serializable {
 
     private LocalDateTime begin;
