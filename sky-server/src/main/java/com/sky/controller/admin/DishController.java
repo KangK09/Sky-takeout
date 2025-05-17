@@ -2,9 +2,11 @@ package com.sky.controller.admin;
 
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
+import com.sky.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -49,6 +51,28 @@ public class DishController {
     public Result deleteById(@RequestParam List<Long> ids){
         log.info("删除菜品：{}",ids);
         dishService.deleteBatch(ids);
+        return Result.success();
+    }
+
+    /**
+     * Retrieves a dish by its ID.
+     *更具id查询菜品
+     * @param id the ID of the dish to retrieve
+     * @return a Result object containing the DishVO representation of the dish, or an appropriate error result if not found
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询菜品")
+    public Result<DishVO> getById(@PathVariable Long id){
+        log.info("根据id查询菜品：");
+        DishVO dishVO =  dishService.getByIdWithFlavor(id);
+        return Result.success(dishVO);
+    }
+
+    @PutMapping
+    @ApiOperation("修改菜品信息")
+    public Result update(@RequestBody DishDTO dishDTO){
+        log.info("修改菜品：{}", dishDTO);
+        dishService.updateWithFlavor(dishDTO);
         return Result.success();
     }
 }
