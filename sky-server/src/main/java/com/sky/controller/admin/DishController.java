@@ -91,4 +91,6 @@ public class DishController {
         List<Dish> list = dishService.getByCategoryId(categoryId);
         return Result.success(list);
     }
+
+
 }

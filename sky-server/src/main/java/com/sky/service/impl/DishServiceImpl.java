@@ -123,6 +123,7 @@ public class DishServiceImpl implements com.sky.service.DishService {
      * 根据id修改菜品和口味
      * @param dishDTO
      */
+    @Transactional
     @Override
     public void updateWithFlavor(DishDTO dishDTO) {
         Dish dish = new Dish();
